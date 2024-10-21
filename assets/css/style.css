@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
+
+/* --------------------
+    基本設定
+-------------------- */
+:root {
+    /* 色 */
+    --colorBlack: #333;
+    --colorBlue: #00316A;
+    --colorBlueLight: #F0F9FF;
+    --colorBlueLight2: #DCF0FF;
+    --colorWhite: #fff;
+
+    /* フォント */
+    --fontMincho: 'Shippori Mincho', serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--colorBlueLight);
+    color: var(--colorBlack);
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 400;
+}
+
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1120px 1fr;
+}
+
+@media screen and (max-width:767px){
+    .wrapper{
+        grid-template-columns: 20px 1fr 20px;
+    }
+}
+
+.for-sp {
+    display: none;
+}
+
+@media screen and (max-width: 767px) {
+    .for-sp {
+        display: block;
+    }
+    .for-pc {
+        display: none;
+    }
+}
+
+/* --------------------
+    ヘッダー
+-------------------- */
+header{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header_logo img{
+    width: 100px;
+}
+
+.header_right{
+    column-gap: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav_pc{
+    align-items: center;
+    column-gap: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav_link{
+    color: var(--colorBlue);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.16rem;
+    transition-duration: 0.3s;
+}
+
+.nav_link:hover{
+    opacity: 0.6;
+}
+
+.nav_products{
+    color: #B8B8B8;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.16rem;
+}
+
+.nav_contact{
+    align-items: center;
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+    display: flex;
+    font-size: 22px;
+    font-weight: 500;
+    height: 90px;
+    justify-content: center;
+    letter-spacing: 0.16rem;
+    position: relative;
+    transition-duration: 0.3s;
+    width: 280px;
+}
+
+.nav_contact:hover{
+    background-color: var(--colorWhite);
+    color: var(--colorBlue);
+}
+
+.nav_contact:after{
+    background-image: url(../images/arrow_wh.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    transition-duration: 0.3s;
+    width: 11px;
+    height: 8px;
+}
+
+.nav_contact:hover:after{
+    background-image: url(../images/arrow_bl.svg);
+    right: 20px;
+}
+
+/* --------------------
+    共通パーツ
+-------------------- */
+.sec_title{
+    color: var(--colorBlue);
+    font-family: var(--fontMincho);
+}
+
+.sec_title h2{
+    font-size: 58px;
+    font-weight: 400;
+    letter-spacing: 0.04rem;
+}
+
+.sec_title span{
+    font-size: 20px;
+}
