@@ -31,22 +31,51 @@ body {
     grid-template-columns: 1fr 1120px 1fr;
 }
 
+@media screen and (max-width:1200px){
+    .wrapper{
+        grid-template-columns: 1fr 80% 1fr;
+    }
+}
+
 @media screen and (max-width:767px){
     .wrapper{
         grid-template-columns: 20px 1fr 20px;
     }
 }
 
+.for-tb {
+    display: none;
+}
+
 .for-sp {
     display: none;
 }
 
-@media screen and (max-width: 767px) {
-    .for-sp {
-        display: block;
-    }
+@media screen and (max-width: 1200px) {
     .for-pc {
         display: none;
+    }
+
+    .for-tb {
+        display: block;
+    }
+
+    .for-sp {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .for-pc {
+        display: none;
+    }
+
+    .for-tb {
+        display: none;
+    }
+
+    .for-sp {
+        display: block;
     }
 }
 
@@ -135,6 +164,12 @@ header{
     right: 20px;
 }
 
+@media screen and (max-width:1200px){
+    .header_right{
+        display: none;
+    }
+}
+
 /* --------------------
     共通パーツ
 -------------------- */
@@ -151,4 +186,14 @@ header{
 
 .sec_title span{
     font-size: 20px;
+}
+
+@media screen and (max-width:767px){
+    .sec_title h2{
+        font-size: 45px;
+    }
+    
+    .sec_title span{
+        font-size: 14px;
+    }
 }
