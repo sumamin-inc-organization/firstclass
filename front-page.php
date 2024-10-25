@@ -19,6 +19,9 @@
         <div class="scrolldown for-pc">
             <div class="scrolldown_inner"><span>scroll</span></div>
         </div>
+        <div class="scrolldown for-tb">
+            <div class="scrolldown_inner"><span>scroll</span></div>
+        </div>
     </section>
 
     <section class="about wrapper">
@@ -113,7 +116,46 @@
                 <h2>NEWS</h2>
                 <span>お知らせ</span>
             </div>
-            <?php get_template_part('template-parts/article', 'page'); ?>
+            <!-- 投稿一覧 -->
+            <div class="news_list">
+                <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                    $args = array(
+                        'post_type'      => 'post',     // ニュース投稿タイプ
+                        'posts_per_page' => 4,          // 表示件数
+                        'post_status'    => 'publish',  // 公開済みのみ
+                        'orderby'        => 'date',     // 投稿日時で並び替え
+                        'order'          => 'DESC',     // 新着順
+                        'paged'          => $paged,     // 現在のページ数
+                    );
+                    $column_query = new WP_Query($args);
+
+                    if ($column_query->have_posts()) :
+                        while ($column_query->have_posts()) :
+                            $column_query->the_post();
+                            $terms = get_the_terms( get_the_ID(), 'post' ); // 'post' はカスタムタクソノミーの名前
+                            $term_slugs = array();
+                            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                                foreach ( $terms as $term ) {
+                                    $term_slugs[] = $term->slug;
+                                }
+                            }
+                    ?>
+                    <a class="news_item" href="<?php the_permalink(); ?>" data-category="<?php echo esc_attr(implode(' ', $term_slugs)); ?>">
+                        <!-- 投稿日 -->
+                        <span class="news_date"><?php echo get_the_date('Y/m/d'); ?></span>
+                        <!-- タイトル -->
+                        <h3 class="news_title"><?php the_title(); ?></h3>
+                    </a>
+                    <?php
+                        endwhile;
+                        wp_reset_postdata();
+                    else :
+                        echo 'ニュースが見つかりませんでした。';
+                    endif;
+                    ?>
+                <a class="btn_news" href="<?= get_post_type_archive_link('news') ?>">お知らせ</a>
+            </div>
         </div>
     </section>
 </main>

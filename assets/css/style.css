@@ -171,6 +171,66 @@ header{
 }
 
 /* --------------------
+    フッター
+-------------------- */
+footer{
+    padding: 40px 0 20px;
+}
+
+.footer_inner{
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer img{
+    width: 100px;
+}
+
+.footer_memu{
+    display: flex;
+    margin-top: 40px;
+}
+
+.footer_link{
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0 40px;
+}
+
+.footer_memu li:not(:last-child){
+    border-right: solid 1px var(--colorBlue);
+}
+
+.copyright{
+    font-size: 12px;
+    margin-top: 60px;
+}
+
+@media screen and (max-width:1024px){
+    .footer_link{
+        padding: 0 20px;
+    }
+}
+
+@media screen and (max-width:767px){
+    .footer_inner{
+        grid-column: 2 / 3;
+    }
+
+    .footer_memu{
+        flex-wrap: wrap;
+        justify-content: center;
+        row-gap: 25px;
+    }
+
+    .footer_memu li:nth-child(3){
+        border-right: none;
+    }
+}
+
+/* --------------------
     共通パーツ
 -------------------- */
 .sec_title{
