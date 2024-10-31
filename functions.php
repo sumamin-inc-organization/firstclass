@@ -33,9 +33,8 @@ function load_assets() {
     if ( is_page( 'about' ) ) {
         wp_enqueue_style( 'about-css', get_template_directory_uri() . '/assets/css/page.about.css', array(), filemtime( get_template_directory() . '/assets/css/page.about.css' ) );
     }
-    if ( is_singular( 'works' ) || is_post_type_archive( 'works' ) || is_page( 'works_roofleak' ) || is_page( 'works_wall' ) || is_page( 'works_balcony' ) ) {
-        wp_enqueue_style( 'works-css', get_template_directory_uri() . '/assets/css/page.works.css', array(), filemtime( get_template_directory() . '/assets/css/page.works.css' ) );
-        // wp_enqueue_script('works-script', get_template_directory_uri() . '/assets/js/page.works.js', array(), null, true);
+    if ( is_page( 'news' ) ) {
+        wp_enqueue_style( 'news-css', get_template_directory_uri() . '/assets/css/page.news.css', array(), filemtime( get_template_directory() . '/assets/css/page.news.css' ) );
     }
     if ( is_page( 'contact' ) ) {
         wp_enqueue_style( 'contact-css', get_template_directory_uri() . '/assets/css/page.contact.css', array(), filemtime( get_template_directory() . '/assets/css/page.contact.css' ) );

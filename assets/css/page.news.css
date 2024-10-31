@@ -1,0 +1,125 @@
+.news_archive_item{
+    border-bottom: solid 1px var(--colorBlueLight2);
+    display: flex;
+    column-gap: 50px;
+    padding: 30px 0;
+    position: relative;
+    transition-duration: 0.3s;
+}
+
+.news_archive_item:first-child{
+    padding-top: 0;
+}
+
+.news_archive_item::after{
+    background-image: url(../images/arrow_bl.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: "";
+    display: block;
+    position: absolute;
+    /* top: 50%; */
+    bottom: 33px;
+    right: 0;
+    /* transform: translateY(-50%); */
+    transition-duration: 0.3s;
+    width: 15px;
+    height: 12px;
+}
+
+.news_archive_item:hover::after{
+    right: -10px;
+}
+
+.news_archive_date{
+    color: var(--colorBlue);
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.news_archive_title{
+    font-size: 16px;
+    font-weight: 400;
+    transition-duration: 0.3s;
+}
+
+.for-360{
+    display: none;
+}
+
+.news_archive_item:hover .news_archive_date,
+.news_archive_item:hover .news_archive_title{
+    opacity: 0.6;
+}
+
+.pagenation{
+    margin-top: 35px;
+}
+
+.pagenation_inner{
+    grid-column: 2 / 4;
+}
+
+.pagination_btn{
+    display: flex;
+    justify-content: center;
+    column-gap: 17px;
+}
+
+.page-numbers{
+    background-color: var(--colorWhite);
+    color: var(--colorBlue);
+    display: block;
+    font-family: var(--fontMincho);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+    width: 50px;
+    transition-duration: 0.3s;
+}
+
+.page-numbers:hover{
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+}
+
+.page-numbers.current{
+    background-color: var(--colorBlue);
+    color: var(--colorWhite);
+}
+
+.page-numbers.prev,
+.page-numbers.next{
+    display: none;
+}
+
+@media screen and (max-width:767px){
+    .news_archive_item{
+        column-gap: 35px;
+    }
+
+    .pagenation{
+        margin-top: 25px;
+    }
+
+    .pagination_btn{
+        column-gap: 13px;
+    }
+
+    .page-numbers{
+        font-size: 18px;
+        line-height: 40px;
+        width: 40px;
+    }
+}
+
+@media screen and (max-width:374px){
+    .news_archive_title.for-sp{
+        display: none;
+    }
+
+    .for-360{
+        display: block;
+    }
+}
